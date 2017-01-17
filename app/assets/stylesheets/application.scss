@@ -16,8 +16,16 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
- .navbar-default {
-     background-color: black;
-     border-color: #e7e7e7;
-     
+ .navbar-default{
+   background-color: black;
+   border-color: #e7e7e7;
+ }
+
+
+ .navbar-default
+ .navbar-brand{
+   background-color: black;
+   border-color: #e7e7e7;
+   color: white;
+
  }
