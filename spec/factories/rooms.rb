@@ -5,7 +5,7 @@ FactoryGirl.define do
     accommodate       2
     bedroom_count     2
     bathroom_count    3
-    listing_name      { Faker::Lorem.sentence(1) }
+    listing_name      { Faker::Lorem.word }
     description       { Faker::Lorem.sentence(40) }
     address           { Faker::Address.city }
     has_tv            true
