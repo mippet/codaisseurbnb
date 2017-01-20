@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Room, type: :model do
   let(:user) { create :user }
-  
+
   describe "validations" do
     it "is invalid without a home type" do
       room = Room.new(home_type: "")
@@ -40,6 +40,18 @@ RSpec.describe Room, type: :model do
 
     it "returns a sorted array of rooms by prices" do
       expect(Room.order_by_price).to match_array [room1, room2, room3]
+    end
+  end
+
+  describe "association with booking" do
+    let(:guest_user) { create :user, email: "guest@user.com" }
+    let(:host_user) { create :user, email: "host@user.com" }
+
+    let!(:room) { create :room, user: host_user }
+    let!(:booking) { create :booking, room: room, user: guest_user }
+
+    it "has guests" do
+      expect(room.guests).to include(guest_user)
     end
   end
 end
